@@ -5,17 +5,21 @@ on:
   pull_request:
 
 jobs:
-  check-code:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Java
+      - name: Set up JDK
         uses: actions/setup-java@v3
         with:
+          distribution: 'zulu'
           java-version: '17'
 
-      - name: Try to build project
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
+
+      - name: Build Kotlin project
         run: ./gradlew build
