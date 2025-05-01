@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7F8FA">
+    android:layout_margin="25dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:padding="24dp">
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Welcome to"
-            android:textSize="16sp"
+            android:textSize="18dp"
             android:textColor="#000000" />
 
         <TextView
@@ -25,10 +25,10 @@
             android:layout_height="wrap_content"
             android:text="Pocket Paladin"
             android:textStyle="bold"
-            android:textColor="#4A3"
+            android:textColor="#4BB472"
             android:textSize="24dp"
             android:layout_marginTop="4dp"/>
-        
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             android:layout_height="96dp"
             android:src="@drawable/pocketpaladin"
             android:layout_marginBottom="24dp" />
-        
+
         <EditText
             android:id="@+id/usernameEditText"
             android:layout_width="match_parent"
@@ -84,15 +84,13 @@
 
         <Button
             android:id="@+id/registerButton"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="50dp"
             android:text="Register"
+            android:backgroundTint="#4BB472"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#4A3AFF"
             android:textStyle="bold" />
-
-
 
     </LinearLayout>
 
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
