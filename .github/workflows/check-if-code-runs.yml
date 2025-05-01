@@ -1,0 +1,21 @@
+name: Check if Code Runs
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check-code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+
+      - name: Try to build project
+        run: ./gradlew build
