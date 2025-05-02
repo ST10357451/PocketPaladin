@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:background="#F5F7FA"
     android:padding="16dp"
-    tools:context=".AddExpenseActivity">
+    tools:context=".ViewExpenses">
 
 
     <!-- Top Bar -->

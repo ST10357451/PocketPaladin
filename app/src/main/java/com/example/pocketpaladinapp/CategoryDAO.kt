@@ -11,4 +11,8 @@ interface CategoryDao {
 
     @Query("SELECT * FROM categories WHERE userOwnerId = :userId")
     suspend fun getAllCategories(userId: Int): List<Category>
+
+    @Query("SELECT * FROM categories WHERE categoryName = :name LIMIT 1")
+    suspend fun getCategoryByName(name: String): Category?
+
 }
