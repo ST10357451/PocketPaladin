@@ -4,7 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-
+/*
+ Portions of this code were assisted or generated using OpenAI's ChatGPT
+ (https://chat.openai.com/) to improve productivity, readability, and functionality.
+ Final implementation decisions and code integration were made by the developer.
+*/
 class SetMonthlyExpendature : AppCompatActivity() {
 
     private lateinit var Back: ImageButton

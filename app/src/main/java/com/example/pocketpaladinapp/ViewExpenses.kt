@@ -5,8 +5,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.budgetapp.com.example.pocketpaladinapp.SettingsActivity
 import java.util.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
+/*
+ Portions of this code were assisted or generated using OpenAI's ChatGPT
+ (https://chat.openai.com/) to improve productivity, readability, and functionality.
+ Final implementation decisions and code integration were made by the developer.
+*/
 class ViewExpenses : AppCompatActivity() {
 
     private lateinit var btnAddNewExpense: ImageButton
@@ -14,6 +21,7 @@ class ViewExpenses : AppCompatActivity() {
     private lateinit var btnFilter: Button
     private lateinit var tvDate: TextView
     private lateinit var btnEditBudget: Button
+    private lateinit var bottomNav: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,20 +31,19 @@ class ViewExpenses : AppCompatActivity() {
         btnAddNewExpense = findViewById(R.id.btnAddNewExpense)
         btnBackExpensePage = findViewById(R.id.btnBackExpensePage)
         btnFilter = findViewById(R.id.btnFilter)
-        tvDate = findViewById(R.id.tvDate) // Make sure to set this ID on your date TextView
+        tvDate = findViewById(R.id.tvDate)
         btnEditBudget = findViewById(R.id.btnEditBudget)
+        bottomNav = findViewById(R.id.bottomNav)
 
         // Navigate to AddExpenseActivity
         btnAddNewExpense.setOnClickListener {
-            val intent = Intent(this, AddExpenseActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, AddExpenseActivity::class.java))
         }
 
-        // Navigate back to view categories
+        // Navigate back to CategoryActivity
         btnBackExpensePage.setOnClickListener {
-            val intent = Intent(this, CategoryActivity ::class.java)
-            startActivity(intent)
-            finish() // Optional: prevent user from coming back here with back button
+            startActivity(Intent(this, CategoryActivity::class.java))
+            finish()
         }
 
         // Filter by date
@@ -49,17 +56,40 @@ class ViewExpenses : AppCompatActivity() {
             val datePicker = DatePickerDialog(this, { _, y, m, d ->
                 val selectedDate = String.format("%02d/%02d/%04d", d, m + 1, y)
                 tvDate.text = selectedDate
-                // TODO: filter expenses based on selectedDate
                 Toast.makeText(this, "Filter applied for: $selectedDate", Toast.LENGTH_SHORT).show()
             }, year, month, day)
 
             datePicker.show()
         }
 
-        // Navigate to EditMonthlyExpenditureActivity
+        // Navigate to SetMonthlyExpendature
         btnEditBudget.setOnClickListener {
-            val intent = Intent(this, SetMonthlyExpendature ::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, SetMonthlyExpendature::class.java))
         }
+
+        // Handle bottom navigation
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    startActivity(Intent(this, CategoryActivity::class.java))
+                    true
+                }
+
+                R.id.nav_expenses -> {
+                    // Already in ViewExpenses
+                    true
+                }
+
+                R.id.nav_settings -> {
+                    startActivity(Intent(this, SettingsActivity::class.java))
+                    true
+                }
+
+                else -> false
+            }
+        }
+
+        // Optional: highlight current nav item
+        bottomNav.selectedItemId = R.id.nav_expenses
     }
 }

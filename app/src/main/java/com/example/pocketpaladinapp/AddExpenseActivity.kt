@@ -11,7 +11,11 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import java.io.InputStream
 import java.util.*
-
+/*
+ Portions of this code were assisted or generated using OpenAI's ChatGPT
+ (https://chat.openai.com/) to improve productivity, readability, and functionality.
+ Final implementation decisions and code integration were made by the developer.
+*/
 class AddExpenseActivity : AppCompatActivity() {
 
     private lateinit var etDescription: EditText
