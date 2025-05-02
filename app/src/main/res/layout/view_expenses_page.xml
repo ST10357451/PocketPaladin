@@ -63,14 +63,15 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
+        android:background="@drawable/edittext_background"
         android:layout_marginBottom="12dp">
 
-        <Button
+        <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="March 15, 2024"
-            android:background="@drawable/edit_text_border"
+            android:background="@android:color/transparent"
             android:textColor="#000000" />
 
         <Button
@@ -78,7 +79,7 @@
             android:layout_height="wrap_content"
             android:text="Filter"
             android:layout_marginStart="8dp"
-            android:background="@drawable/edit_text_border"
+            android:background="@android:color/transparent"
             android:textColor="#000000" />
     </LinearLayout>
 
@@ -164,6 +165,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@drawable/edittext_background"
         android:paddingBottom="16dp">
 
         <!-- Label and Edit Button Row -->
