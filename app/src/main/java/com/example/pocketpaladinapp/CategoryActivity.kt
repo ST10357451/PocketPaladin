@@ -7,9 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.budgetapp.com.example.pocketpaladinapp.SettingsActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.example.pocketpaladinapp.ViewExpenses
 
 /*
  Portions of this code were assisted or generated using OpenAI's ChatGPT
@@ -54,12 +52,12 @@ class CategoryActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.nav_home -> true
                 R.id.nav_expenses -> {
-                    startActivity(Intent(this, ViewExpenses::class.java))
+                    startActivity(Intent(this, MainActivity::class.java)) //ViewExpenses
                     true
                 }
 
                 R.id.nav_settings -> {
-                    startActivity(Intent(this, SettingsActivity::class.java))
+                    startActivity(Intent(this, MainActivity::class.java)) //SettingsActivity
                     true
                 }
 
