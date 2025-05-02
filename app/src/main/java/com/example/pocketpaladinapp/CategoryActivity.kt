@@ -46,6 +46,7 @@ class CategoryActivity : AppCompatActivity() {
             Toast.makeText(this, "Categories sorted alphabetically", Toast.LENGTH_SHORT).show()
         }
 
+        /*
         // Bottom Navigation
         val bottomNav: BottomNavigationView = findViewById(R.id.bottomNav)
         bottomNav.setOnItemSelectedListener {
@@ -63,7 +64,7 @@ class CategoryActivity : AppCompatActivity() {
 
                 else -> false
             }
-        }
+        }*/
     }
 
     // This handles result from AddCategoryActivity
