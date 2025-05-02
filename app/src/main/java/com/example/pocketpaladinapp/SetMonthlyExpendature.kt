@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
-class SetLimitActivity : AppCompatActivity() {
+class SetMonthlyExpendature : AppCompatActivity() {
 
     private lateinit var Back: ImageButton
     private lateinit var LimitInput: EditText

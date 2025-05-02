@@ -21,6 +21,7 @@
 
 
         <ImageView
+            android:id="@+id/btnBackExpensePage"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/back_arrow" />
@@ -50,6 +51,7 @@
 
 
         <ImageView
+            android:id="@+id/btnAddNewExpense"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="12dp"
@@ -67,6 +69,7 @@
         android:layout_marginBottom="12dp">
 
         <TextView
+            android:id="@+id/tvDate"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -75,6 +78,7 @@
             android:textColor="#000000" />
 
         <Button
+            android:id="@+id/btnFilter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Filter"

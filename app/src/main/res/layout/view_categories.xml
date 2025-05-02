@@ -29,9 +29,9 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/filter"
-            android:contentDescription="Filter"
-            android:backgroundTint="#000000" />
+            android:src="@drawable/filter_icon"
+            android:contentDescription="Filter" />
+           <!-- android:backgroundTint="#000000" -->
 
         <ImageButton
             android:id="@+id/addButton"

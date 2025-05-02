@@ -32,9 +32,9 @@ class ViewExpenses : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Navigate back to CategoriesActivity
+        // Navigate back to view categories
         btnBackExpensePage.setOnClickListener {
-            val intent = Intent(this, CategoriesActivity::class.java)
+            val intent = Intent(this, CategoryActivity ::class.java)
             startActivity(intent)
             finish() // Optional: prevent user from coming back here with back button
         }
@@ -58,7 +58,7 @@ class ViewExpenses : AppCompatActivity() {
 
         // Navigate to EditMonthlyExpenditureActivity
         btnEditBudget.setOnClickListener {
-            val intent = Intent(this, SetMonthlyExpendature::class.java)
+            val intent = Intent(this, SetMonthlyExpendature ::class.java)
             startActivity(intent)
         }
     }
