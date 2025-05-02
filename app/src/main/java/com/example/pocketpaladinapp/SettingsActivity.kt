@@ -7,13 +7,10 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pocketpaladinapp.AppDatabase
-import com.example.pocketpaladinapp.MainActivity
 import com.example.pocketpaladinapp.R
 import com.example.pocketpaladinapp.UserDao
-import androidx.lifecycle.lifecycleScope
 import com.example.pocketpaladinapp.CategoryActivity
 import com.example.pocketpaladinapp.Login
-import kotlinx.coroutines.launch
 
 class SettingsActivity : AppCompatActivity()
 {
@@ -29,7 +26,7 @@ class SettingsActivity : AppCompatActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.settingspage)
+        setContentView(R.layout.activity_settings)
 
         // Init
         usernameField = findViewById(R.id.usernameField)

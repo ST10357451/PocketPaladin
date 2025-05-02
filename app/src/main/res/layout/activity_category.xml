@@ -58,19 +58,60 @@
         android:clipToPadding="false"
         android:contentDescription="List of budget categories"
         app:layout_constraintTop_toBottomOf="@id/topBar"
-        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintBottom_toTopOf="@id/customNavBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Bottom Navigation -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNav"
+    <LinearLayout
+        android:id="@+id/customNavBar"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:background="#FFFFFF"
-        app:menu="@menu/nav_menu"
+        android:weightSum="4"
+        android:padding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_home"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="Home"/>
+
+        <ImageButton
+            android:id="@+id/navExpenses"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_expense"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="Expenses"/>
+
+        <ImageButton
+            android:id="@+id/navBudgetGoals"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_goals"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="Budget Goals"/>
+
+        <ImageButton
+            android:id="@+id/navSettings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_settings"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="Settings"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
