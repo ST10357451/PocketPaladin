@@ -1,4 +1,4 @@
-package com.example.budgetapp
+package com.example.budgetapp.com.example.pocketpaladinapp
 
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,8 @@ import com.example.pocketpaladinapp.MainActivity
 import com.example.pocketpaladinapp.R
 import com.example.pocketpaladinapp.UserDao
 import androidx.lifecycle.lifecycleScope
+import com.example.pocketpaladinapp.CategoryActivity
+import com.example.pocketpaladinapp.Login
 import kotlinx.coroutines.launch
 
 class SettingsActivity : AppCompatActivity()
@@ -42,30 +44,30 @@ class SettingsActivity : AppCompatActivity()
 
         //val userId = sharedPreferences.getInt("user_id", -1)
         //if (userId != -1) {
-          //  loadUserInfo(userId)
+        //  loadUserInfo(userId)
         //}
 
         logoutButton.setOnClickListener {
             sharedPreferences.edit().clear().apply()
-            startActivity(Intent(this, MainActivity::class.java)) //Change to Category Activity
+            startActivity(Intent(this, Login::class.java))
             finish()
         }
 
         backButton.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java)) //Change to Login Activity
+            startActivity(Intent(this, CategoryActivity::class.java))
             finish()
         }
     }
 
-   // private fun loadUserInfo(userId: Int) {
-     //   lifecycleScope.launch {
-       //     val user = userDao.getUserById(userId)
-         //   user?.let {
-           //     usernameField.setText(it.username)
-             //   emailField.setText(it.email)
-               // passwordField.setText(it.password)
-            //}
-        //}
+    // private fun loadUserInfo(userId: Int) {
+    //   lifecycleScope.launch {
+    //     val user = userDao.getUserById(userId)
+    //   user?.let {
+    //     usernameField.setText(it.username)
+    //   emailField.setText(it.email)
+    // passwordField.setText(it.password)
+    //}
+    //}
     //}
 
 }

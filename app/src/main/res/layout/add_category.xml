@@ -45,16 +45,6 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <EditText
-            android:id="@+id/categoryLimitEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Monthly Limit (optional)"
-            android:inputType="numberDecimal"
-            android:background="@drawable/edittext_background"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp" />
-
         <Button
             android:id="@+id/saveCategoryButton"
             android:layout_width="match_parent"
