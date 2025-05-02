@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutRoot"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -47,16 +48,13 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_search" />
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="12dp"
-            android:src="@drawable/ic_add" />
+            android:src="@drawable/add_icon" />
+
     </LinearLayout>
 
     <!-- Date and Filter Row -->
@@ -72,17 +70,15 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="March 15, 2024"
-            android:drawableLeft="@drawable/ic_calendar"
-            android:background="@drawable/button_background"
+            android:background="@drawable/edit_text_border"
             android:textColor="#000000" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Filter"
-            android:drawableLeft="@drawable/ic_filter"
             android:layout_marginStart="8dp"
-            android:background="@drawable/button_background"
+            android:background="@drawable/edit_text_border"
             android:textColor="#000000" />
     </LinearLayout>
 
@@ -110,8 +106,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_lunch"
-                    android:background="@drawable/icon_bg_purple"
+                    android:background="@drawable/edittext_background"
                     android:padding="8dp" />
 
                 <LinearLayout
@@ -162,44 +157,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Bottom Navigation -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:background="#FFFFFF"
-        android:gravity="center">
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_dashboard" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_accounts" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_expenses_active" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_categories" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_budget" />
-    </LinearLayout>
 
     <!-- Monthly Budget Section -->
     <LinearLayout
@@ -256,6 +214,14 @@
             android:textSize="14sp"
             android:layout_marginTop="4dp" />
     </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        app:menu="@menu/nav_menu" />
 
 </LinearLayout>
 
