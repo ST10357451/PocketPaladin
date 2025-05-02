@@ -1,25 +1,15 @@
 package com.example.pocketpaladinapp
 
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
-/*
- Portions of this code were assisted or generated using OpenAI's ChatGPT
- (https://chat.openai.com/) to improve productivity, readability, and functionality.
- Final implementation decisions and code integration were made by the developer.
-*/
-
-class CategoryAdapter(private val categories: List<String>) :
-    RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
-
-    inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nameText: TextView = itemView.findViewById(R.id.categoryNameTextView)
-        val extraText: TextView = itemView.findViewById(R.id.categoryExtraTextView)
-    }
+class CategoryAdapter :
+    ListAdapter<Category, CategoryAdapter.CategoryViewHolder>(CategoryDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -28,10 +18,26 @@ class CategoryAdapter(private val categories: List<String>) :
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        val category = categories[position]
-        holder.nameText.text = category
-        holder.extraText.text = "Tap to edit" // placeholder text
+        holder.bind(getItem(position))
     }
 
-    override fun getItemCount(): Int = categories.size
+    class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val nameTextView: TextView = itemView.findViewById(R.id.categoryNameTextView)
+        private val extraTextView: TextView = itemView.findViewById(R.id.categoryExtraTextView)
+
+        fun bind(category: Category) {
+            nameTextView.text = category.categoryName
+            extraTextView.text = "Total: £${String.format("%.2f", category.categoryTotal)}"
+        }
+    }
+}
+
+class CategoryDiffCallback : DiffUtil.ItemCallback<Category>() {
+    override fun areItemsTheSame(oldItem: Category, newItem: Category): Boolean {
+        return oldItem.categoryId == newItem.categoryId
+    }
+
+    override fun areContentsTheSame(oldItem: Category, newItem: Category): Boolean {
+        return oldItem ==newItem
+    }
 }

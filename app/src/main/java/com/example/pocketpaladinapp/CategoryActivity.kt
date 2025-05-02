@@ -3,85 +3,83 @@ package com.example.pocketpaladinapp
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomnavigation.BottomNavigationView
-
-/*
- Portions of this code were assisted or generated using OpenAI's ChatGPT
- (https://chat.openai.com/) to improve productivity, readability, and functionality.
- Final implementation decisions and code integration were made by the developer.
-*/
+import kotlinx.coroutines.*
 
 class CategoryActivity : AppCompatActivity() {
 
     private lateinit var categoryRecyclerView: RecyclerView
+    private lateinit var addButton: ImageButton
+    private lateinit var filterButton: ImageButton
+
+    private lateinit var navHome: ImageButton
+    private lateinit var navExpenses: ImageButton
+    private lateinit var navBudgetGoals: ImageButton
+    private lateinit var navSettings: ImageButton
+
     private lateinit var categoryAdapter: CategoryAdapter
-    private val categoryList = mutableListOf<String>()
+    private lateinit var db: AppDatabase
+    private val userId: Int = 1 // Replace this with actual user ID logic
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
 
-        // Initialize RecyclerView
+        db = AppDatabase.getDatabase(this)
+
         categoryRecyclerView = findViewById(R.id.categoryRecyclerView)
-        categoryAdapter = CategoryAdapter(categoryList)
+        addButton = findViewById(R.id.addButton)
+        filterButton = findViewById(R.id.filterButton)
+
+        navHome = findViewById(R.id.navHome)
+        navExpenses = findViewById(R.id.navExpenses)
+        navBudgetGoals = findViewById(R.id.navBudgetGoals)
+        navSettings = findViewById(R.id.navSettings)
+
+        setupRecyclerView()
+        setupNavigation()
+        loadCategories()
+
+        addButton.setOnClickListener {
+            startActivity(Intent(this, AddCategoryActivity::class.java))
+        }
+
+        filterButton.setOnClickListener {
+            // Optional filter action
+        }
+    }
+
+    private fun setupRecyclerView() {
+        categoryAdapter = CategoryAdapter()
         categoryRecyclerView.layoutManager = LinearLayoutManager(this)
         categoryRecyclerView.adapter = categoryAdapter
-
-        // Add button logic
-        val addButton: ImageButton = findViewById(R.id.addButton)
-        addButton.setOnClickListener {
-            val intent = Intent(this, AddCategoryActivity::class.java)
-            startActivityForResult(intent, ADD_CATEGORY_REQUEST_CODE)
-        }
-
-        // 🔽 Filter button logic
-        val filterButton: ImageButton = findViewById(R.id.filterButton)
-        filterButton.setOnClickListener {
-            categoryList.sortBy { it.lowercase() }
-            categoryAdapter.notifyDataSetChanged()
-            Toast.makeText(this, "Categories sorted alphabetically", Toast.LENGTH_SHORT).show()
-        }
-
-        /*
-        // Bottom Navigation
-        val bottomNav: BottomNavigationView = findViewById(R.id.bottomNav)
-        bottomNav.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.nav_home -> true
-                R.id.nav_expenses -> {
-                    startActivity(Intent(this, MainActivity::class.java)) //ViewExpenses
-                    true
-                }
-
-                R.id.nav_settings -> {
-                    startActivity(Intent(this, MainActivity::class.java)) //SettingsActivity
-                    true
-                }
-
-                else -> false
-            }
-        }*/
     }
 
-    // This handles result from AddCategoryActivity
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == ADD_CATEGORY_REQUEST_CODE && resultCode == RESULT_OK) {
-            val newCategory = data?.getStringExtra("category_name")
-            if (!newCategory.isNullOrEmpty()) {
-                categoryList.add(newCategory)
-                categoryAdapter.notifyItemInserted(categoryList.size - 1)
-            } else {
-                Toast.makeText(this, "No category added", Toast.LENGTH_SHORT).show()
+    private fun loadCategories() {
+        CoroutineScope(Dispatchers.Main).launch {
+            val categories = withContext(Dispatchers.IO) {
+                db.categoryDao().getAllCategories(userId)
             }
+            categoryAdapter.submitList(categories)
         }
     }
 
-    companion object {
-        const val ADD_CATEGORY_REQUEST_CODE = 100
+    private fun setupNavigation() {
+        navHome.setOnClickListener {
+            // Navigate to Home
+        }
+        navExpenses.setOnClickListener {
+            // Navigate to Expenses
+        }
+        navBudgetGoals.setOnClickListener {
+            // Navigate to Budget Goals
+        }
+        navSettings.setOnClickListener {
+            // Navigate to settings screen
+            val intent = Intent(this, Register::class.java) // chage this to settigs activity
+            startActivity(intent)
+        }
     }
 }
