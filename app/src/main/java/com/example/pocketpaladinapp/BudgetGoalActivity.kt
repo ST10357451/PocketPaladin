@@ -21,7 +21,7 @@ class BudgetGoalActivity : AppCompatActivity() {
     private lateinit var adapter: BudgetGoalAdapter
 
     private lateinit var db: AppDatabase
-    private var userId: Int = 1 // Replace with actual user ID logic if necessary
+    private var userId: Int = 1 // Replace with actual user ID logic
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

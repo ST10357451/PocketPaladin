@@ -58,7 +58,7 @@ class ViewExpenses : AppCompatActivity() {
 
         // Navigate to EditMonthlyExpenditureActivity
         btnEditBudget.setOnClickListener {
-            val intent = Intent(this, SetMonthlyExpendature ::class.java)
+            val intent = Intent(this, BudgetGoalActivity ::class.java)
             startActivity(intent)
         }
     }

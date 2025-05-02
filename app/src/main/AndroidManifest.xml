@@ -15,6 +15,9 @@
         android:theme="@style/Theme.PocketPaladinApp"
         tools:targetApi="31">
         <activity
+            android:name=".ViewExpenseActivity"
+            android:exported="false" />
+        <activity
             android:name=".BudgetGoalActivity"
             android:exported="false" />
         <activity

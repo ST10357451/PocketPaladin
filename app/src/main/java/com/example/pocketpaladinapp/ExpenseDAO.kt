@@ -19,6 +19,9 @@ interface ExpenseDao {
         GROUP BY categoryOwnerId
     """)
     suspend fun getTotalSpentByCategory(userId: Int, startDate: String, endDate: String): List<CategoryTotal>
+
+    @Query("SELECT * FROM expenses WHERE userOwnerId = :userId ORDER BY categoryOwnerId")
+    suspend fun getAllExpensesOrderedByCategory(userId: Int): List<Expense>
 }
 
 data class CategoryTotal(
