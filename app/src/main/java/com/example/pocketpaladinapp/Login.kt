@@ -46,7 +46,7 @@ class Login : AppCompatActivity() {
                         if (user != null) {
                             Toast.makeText(this@Login, "Login successful", Toast.LENGTH_SHORT).show()
                             // Redirect to Dashboard
-                            val intent = Intent(this@Login, MainActivity::class.java)
+                            val intent = Intent(this@Login, CategoryActivity::class.java)
                             intent.putExtra("userId", user.userId)
                             startActivity(intent)
                             finish()
