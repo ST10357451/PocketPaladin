@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Back Button -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            android:src="@drawable/back_arrow"
+            android:contentDescription="Back" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvLimitTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Monthly Spending Limit"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Input Field -->
+        <EditText
+            android:id="@+id/etLimitInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter amount (e.g. 1000)"
+            android:inputType="numberDecimal"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_border"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btnSaveLimit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Limit"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#4CAF50"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Current Limit Info with Currency Spinner -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tvCurrentLimit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Limit for May 2025: Not set"
+                android:textSize="16sp"
+                android:textColor="#555555"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <!-- Spending History Title -->
+        <TextView
+            android:id="@+id/tvHistoryTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Previous Months Spending"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp" />
+
+        <!-- History Texts (without cards) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="April 2025: $850"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:textColor="#444444"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="March 2025: $920"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:textColor="#444444"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="February 2025: $760"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:textColor="#444444"
+            android:layout_marginBottom="8dp" />
+
+    </LinearLayout>
+</ScrollView>
