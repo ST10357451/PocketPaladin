@@ -11,4 +11,9 @@ interface BudgetGoalDao {
 
     @Query("SELECT * FROM budget_goals WHERE userOwnerId = :userId AND month = :month")
     suspend fun getGoalsForMonth(userId: Int, month: String): BudgetGoal?
+
+    @Query("SELECT * FROM budget_goals WHERE userOwnerId = :userId ORDER BY month DESC")
+    suspend fun getAllGoals(userId: Int): List<BudgetGoal>
+
+
 }

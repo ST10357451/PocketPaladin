@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f5f5f5">
+    tools:context=".BudgetGoalActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <!-- Back Button -->
         <ImageButton
@@ -16,102 +26,105 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
             android:padding="4dp"
-            android:src="@drawable/back_arrow"
-            android:contentDescription="Back" />
+            android:src="@drawable/back_arrow" />
 
         <!-- Title -->
         <TextView
             android:id="@+id/tvLimitTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="Set Monthly Spending Limit"
-            android:textSize="24sp"
-            android:textStyle="bold"
             android:textColor="#333333"
-            android:layout_marginBottom="8dp" />
+            android:textSize="24sp"
+            android:textStyle="bold" />
         <!-- Input Max limit -->
         <TextView
             android:id="@+id/tvMonthText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="Enter the Month"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
+            android:textSize="18sp" />
+
         <EditText
             android:id="@+id/etMonthInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/edit_text_border"
             android:hint="Enter Month (eg.2025-04)"
             android:inputType="numberDecimal"
             android:padding="12dp"
-            android:background="@drawable/edit_text_border"
             android:textColor="#000000"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp" />
+            android:textSize="16sp" />
 
         <!-- Input Min limit -->
         <TextView
             android:id="@+id/tvMinLimitText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="Enter the Minimum Limit"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
+            android:textSize="18sp" />
+
         <EditText
             android:id="@+id/etMinLimitInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/edit_text_border"
             android:hint="Enter amount (e.g. 200)"
             android:inputType="numberDecimal"
             android:padding="12dp"
-            android:background="@drawable/edit_text_border"
             android:textColor="#000000"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp" />
+            android:textSize="16sp" />
 
         <!-- Input Max limit -->
         <TextView
             android:id="@+id/tvMaxLimitText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="Enter the Maximum Limit"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
+            android:textSize="18sp" />
+
         <EditText
             android:id="@+id/etMaxLimitInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/edit_text_border"
             android:hint="Enter amount (e.g. 12000)"
             android:inputType="numberDecimal"
             android:padding="12dp"
-            android:background="@drawable/edit_text_border"
             android:textColor="#000000"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp" />
+            android:textSize="16sp" />
 
         <!-- Save Button -->
         <Button
             android:id="@+id/btnSaveLimit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save Limit"
-            android:textColor="#FFFFFF"
+            android:layout_marginBottom="10dp"
             android:backgroundTint="#4CAF50"
             android:padding="12dp"
-            android:textSize="16sp"
-            android:layout_marginBottom="10dp" />
+            android:text="Save Limit"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <!-- Spending History Title -->
         <TextView
             android:id="@+id/tvHistoryTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="Previous Months Limits"
-            android:textStyle="bold"
-            android:textSize="18sp"
             android:textColor="#333333"
-            android:layout_marginBottom="8dp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <!-- RecyclerView for previous months -->
         <androidx.recyclerview.widget.RecyclerView
@@ -122,4 +135,4 @@
             android:nestedScrollingEnabled="false" />
     </LinearLayout>
 
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
