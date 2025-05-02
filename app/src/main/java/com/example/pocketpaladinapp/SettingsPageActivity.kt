@@ -1,22 +1,21 @@
-package com.example.budgetapp.com.example.pocketpaladinapp
+package com.example.pocketpaladinapp
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageButton
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pocketpaladinapp.AppDatabase
-import com.example.pocketpaladinapp.MainActivity
-import com.example.pocketpaladinapp.R
-import com.example.pocketpaladinapp.UserDao
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.example.pocketpaladinapp.CategoryActivity
-import com.example.pocketpaladinapp.Login
 import kotlinx.coroutines.launch
 
-class SettingsActivity : AppCompatActivity()
-{
+class SettingsPageActivity : AppCompatActivity() {
+
     private lateinit var db: AppDatabase
     private lateinit var userDao: UserDao
     private lateinit var sharedPreferences: SharedPreferences
@@ -29,7 +28,8 @@ class SettingsActivity : AppCompatActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.settingspage)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_settings_page)
 
         // Init
         usernameField = findViewById(R.id.usernameField)
@@ -59,15 +59,14 @@ class SettingsActivity : AppCompatActivity()
         }
     }
 
-    // private fun loadUserInfo(userId: Int) {
-    //   lifecycleScope.launch {
-    //     val user = userDao.getUserById(userId)
-    //   user?.let {
-    //     usernameField.setText(it.username)
-    //   emailField.setText(it.email)
-    // passwordField.setText(it.password)
-    //}
-    //}
-    //}
-
+    private fun loadUserInfo(userId: Int) {
+        lifecycleScope.launch {
+            val user = userDao.getUserById(userId)
+            user?.let {
+                usernameField.setText(it.userName)
+                emailField.setText(it.email)
+                passwordField.setText(it.password)
+            }
+        }
+    }
 }

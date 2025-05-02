@@ -16,4 +16,8 @@ interface UserDao {
     @Query("SELECT * FROM users WHERE userName = :userName")
     suspend fun getUserByUsername(userName: String): User?
 
+    @Query("SELECT * FROM users WHERE userId = :userId")
+    suspend fun getUserById(userId: Int): User?
+
+
 }
