@@ -16,8 +16,7 @@
         android:src="@drawable/ic_back"
         android:contentDescription="Back"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:BackgroundTint="#333333" />
+        android:layout_marginEnd="8dp"/>
 
     <!-- Rest of your layout inside a nested layout -->
     <LinearLayout
