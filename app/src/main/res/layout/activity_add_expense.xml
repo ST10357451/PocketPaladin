@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="8dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
             android:id="@+id/AddExpense"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
+            android:paddingBottom="8dp"
             android:text="Add Expense"
             android:textColor="#333333"
             android:textSize="40sp"
@@ -47,7 +47,7 @@
             android:id="@+id/etDescription"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:hint="Enter description"
             android:inputType="text"
             android:padding="6dp"
@@ -65,7 +65,7 @@
             android:id="@+id/spinnerCategory"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="8dp" />
 
         <TextView
             android:text="Date"
@@ -78,7 +78,7 @@
             android:id="@+id/etDate"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:focusable="false"
             android:hint="Select Date"
             android:padding="6dp"
@@ -96,9 +96,45 @@
             android:id="@+id/etStartTime"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:focusable="false"
             android:hint="Start Time"
+            android:padding="6dp"
+            android:textSize="14sp"
+            android:background="@drawable/edit_text_border" />
+
+        <TextView
+            android:text="End Time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#555555" />
+
+        <EditText
+            android:id="@+id/etEndTime"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:focusable="false"
+            android:hint="End Time"
+            android:padding="6dp"
+            android:textSize="14sp"
+            android:background="@drawable/edit_text_border" />
+
+        <TextView
+            android:text="Amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#555555" />
+
+        <EditText
+            android:id="@+id/etAmount"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:hint="Enter amount"
+            android:inputType="numberDecimal"
             android:padding="6dp"
             android:textSize="14sp"
             android:background="@drawable/edit_text_border" />
@@ -113,8 +149,8 @@
         <ImageButton
             android:id="@+id/btnSelectPhoto"
             android:layout_width="match_parent"
-            android:layout_height="107dp"
-            android:layout_marginBottom="16dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="8dp"
             android:adjustViewBounds="true"
             android:background="@drawable/edit_text_border"
             android:contentDescription="Upload Image"
